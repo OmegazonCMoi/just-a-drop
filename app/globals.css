@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -12,15 +13,27 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+  Corner shape rules (opt-in .squircle only — never global)
+
+  Rounded (default border-radius, no .squircle):
+  - Buttons & form fields
+  - Dashboard / dense cards, lists, tables
+  - SaaS & utilitarian UI (nav, mega-menu, controls)
+
+  Squircle (add class "squircle"):
+  - App icons
+  - Large visual cards
+  - Main artistic containers
+  - Mobile / branded surfaces
+*/
+@supports (corner-shape: squircle) {
+  .squircle {
+    corner-shape: squircle;
+  }
 }
