@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import {
@@ -22,6 +22,11 @@ gsap.registerPlugin(useGSAP);
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["500", "600"],
 });
 
 const linkClass =
@@ -214,7 +219,7 @@ export default function Navbar() {
                         </span>
                       </div>
                       <span className="mt-8 block">
-                        <span className="block text-[16px] font-medium tracking-[-0.01em] text-[#171717]">
+                        <span className={`${playfair.className} block text-[16px] font-medium tracking-[-0.01em] text-[#171717]`}>
                           {item.title}
                         </span>
                         <span className="mt-1 block text-[13.5px] leading-snug font-normal text-[#171717]/55">

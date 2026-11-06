@@ -1,6 +1,12 @@
 "use client";
 
+import { Playfair_Display } from "next/font/google";
 import Iridescence from "@/components/Iridescence";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+});
 
 export default function Hero() {
   return (
@@ -26,7 +32,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 flex h-full flex-col justify-end px-10 pb-16 md:max-w-[46%] md:px-12 md:pb-20">
-        <h1 className="text-[clamp(2.4rem,5.2vw,4.4rem)] leading-[1.05] font-semibold tracking-[-0.04em] text-[#171717] text-balance">
+        <h1 className={`${playfair.className} text-[clamp(2.4rem,5.2vw,4.4rem)] leading-[1.05] font-semibold tracking-[-0.04em] text-[#171717] text-balance`}>
           So, what are we getting tattooed today?
         </h1>
         <p className="mt-4 max-w-md text-[15px] leading-relaxed text-[#171717]/65">
