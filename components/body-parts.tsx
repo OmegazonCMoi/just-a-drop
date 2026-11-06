@@ -2,12 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { Playfair_Display } from "next/font/google";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+});
 
 const PARTS = [
   { label: "Forearm", src: "/body/forearm-v2.jpg" },
@@ -57,7 +63,7 @@ function SectionTitle({ text }: { text: string }) {
   return (
     <h2
       ref={rootRef}
-      className="w-fit text-[clamp(3.5rem,9vw,7rem)] leading-[0.98] font-semibold tracking-[-0.05em] text-[#171717]"
+      className={`${playfair.className} w-fit text-[clamp(3.5rem,9vw,7rem)] leading-[0.98] font-semibold tracking-[-0.05em] text-[#171717]`}
     >
       {text}
     </h2>
